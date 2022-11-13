@@ -1,0 +1,5 @@
+{
+    "require": {
+        "magento/module-checkout": "100.4.*"
+    }
+}
