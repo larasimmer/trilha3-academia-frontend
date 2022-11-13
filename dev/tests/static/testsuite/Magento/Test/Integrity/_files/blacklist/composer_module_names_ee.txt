@@ -1,0 +1,3 @@
+magento/module-aws-s3-customer-custom-attributes
+magento/module-aws-s3-gift-card-import-export
+magento/module-aws-s3-scheduled-import-export

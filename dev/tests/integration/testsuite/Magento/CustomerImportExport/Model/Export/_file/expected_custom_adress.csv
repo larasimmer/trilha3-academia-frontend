@@ -1,0 +1,3 @@
+_website,_email,_entity_id,city,company,country_id,fax,firstname,lastname,middlename,multi_select_attribute_code,postcode,prefix,region,region_id,street,suffix,telephone,test_select_code,vat_id,vat_is_valid,vat_request_date,vat_request_id,vat_request_success,_address_default_billing_,_address_default_shipping_
+admin,BetsyParker@example.com,1,Philadelphia,,US,,Betsy,Parker,,"Option 2",19107,,Pennsylvania,51,"1079 Rocky Road",,215-629-9720,Second,,,,,,1,
+admin,BetsyParker@example.com,2,Fayetteville,,US,,Anthony,Nealy,,"Option 1,Option 3",72701,,Arkansas,5,"3176 Cambridge Court",,479-899-9849,First,,,,,,,1
