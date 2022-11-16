@@ -12,7 +12,10 @@ define([
      */
     return Component.extend({
         defaults: {
-            template: 'Webjump_NewCheckoutStep/newcheckoutstep'
+            template: 'Webjump_NewCheckoutStep/newcheckoutstep',
+            messageLogin: ko.observable(''),
+            customerDataFullName: '<p>' + window.customerData.firstname + ' ' + window.customerData.lastname + '</p>',
+            customerDataEmail: '<p>' + window.customerData.email + '</p>'
         },
 
         // add here your logic to display step,
@@ -23,6 +26,7 @@ define([
          */
         initialize: function () {
             this._super();
+            this.loginVerification();
 
             // register your step
             stepNavigator.registerStep(
@@ -47,6 +51,17 @@ define([
             );
 
             return this;
+        },
+
+        loginVerification: function() {
+
+            var isLoggedIn = window.isCustomerLoggedIn;
+
+            if (isLoggedIn) {
+                this.messageLogin(this.customerDataFullName + ' ' + this.customerDataEmail);
+            } else {
+                console.log("Please login first");
+            }
         },
 
         /**
