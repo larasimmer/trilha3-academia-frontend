@@ -4,11 +4,16 @@
     <div id="checkout-step-title"
          class="step-content"
          data-role="content">
-        <p data-bind="html: messageLogin"></p>
+         <div>
+            <p data-bind="html: messageLogin"></p>
+            <p data-bind="visible: shouldShowUrl">
+                <!-- ko i18n: 'You are not logged in. Please, '--><!-- /ko --><a data-bind="attr: {href: getUrlReturn()}, i18n:'click here to log in'"></a>
+            </p>
+        </div>
         <form data-bind="submit: navigateToNextStep" novalidate="novalidate">
             <div class="actions-toolbar">
                 <div class="primary">
-                    <button data-role="opc-continue" type="submit" class="button action continue primary">
+                    <button data-role="opc-continue" type="submit" class="button action continue primary" data-bind="attr: {'disabled': disableButtonNext}">
                         <span><!-- ko i18n: 'Next'--><!-- /ko --></span>
                     </button>
                 </div>
@@ -16,3 +21,5 @@
         </form>
     </div>
 </li>
+
+

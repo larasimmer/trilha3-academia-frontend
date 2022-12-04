@@ -2,8 +2,9 @@ define([
     'ko',
     'uiComponent',
     'underscore',
-    'Magento_Checkout/js/model/step-navigator'
-], function (ko, Component, _, stepNavigator) {
+    'Magento_Checkout/js/model/step-navigator',
+    'mage/url'
+], function (ko, Component, _, stepNavigator,url) {
     'use strict';
 
     /**
@@ -13,9 +14,11 @@ define([
     return Component.extend({
         defaults: {
             template: 'Webjump_NewCheckoutStep/newcheckoutstep',
-            messageLogin: ko.observable(''),
+            messageLogin: ko.observable(),
             customerDataFullName: '<p>' + window.customerData.firstname + ' ' + window.customerData.lastname + '</p>',
-            customerDataEmail: '<p>' + window.customerData.email + '</p>'
+            customerDataEmail: '<p>' + window.customerData.email + '</p>',
+            shouldShowUrl: ko.observable(false),
+            disableButtonNext: ko.observable(false)
         },
 
         // add here your logic to display step,
@@ -60,7 +63,9 @@ define([
             if (isLoggedIn) {
                 this.messageLogin(this.customerDataFullName + ' ' + this.customerDataEmail);
             } else {
-                console.log("Please login first");
+                this.shouldShowUrl(true);
+                this.messageLogin('');
+                this.disableButtonNext(true);
             }
         },
 
@@ -79,6 +84,10 @@ define([
          */
         navigateToNextStep: function () {
             stepNavigator.next();
+        },
+
+        getUrlReturn: function (){
+            return url.build('customer/account/login');
         }
     });
 });

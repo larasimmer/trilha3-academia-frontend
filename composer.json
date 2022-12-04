@@ -16,9 +16,10 @@
     },
     "version": "2.4.4",
     "require": {
-        "magento/product-enterprise-edition": "2.4.4",
         "magento/composer-dependency-version-audit-plugin": "~0.1",
-        "magento/composer-root-update-plugin": "~2.0"
+        "magento/composer-root-update-plugin": "~2.0",
+        "magento/product-enterprise-edition": "2.4.4",
+        "mercadopago/magento2-plugin": "3.*"
     },
     "autoload": {
         "exclude-from-classmap": [
@@ -81,4 +82,3 @@
         "magento-force": "override"
     }
 }
-
